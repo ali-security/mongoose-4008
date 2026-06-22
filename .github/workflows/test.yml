@@ -2,24 +2,24 @@ name: Test
 on:
   pull_request:
     paths:
-      - ".github/workflows/test.yml"
-      - "package.json"
-      - "index.js"
-      - "lib/**"
-      - "test/**.js"
+      - .github/workflows/test.yml
+      - package.json
+      - index.js
+      - lib/**
+      - test/**.js
   push:
     paths:
-      - ".github/workflows/test.yml"
-      - "package.json"
-      - "index.js"
-      - "lib/**"
-      - "test/**.js"
+      - .github/workflows/test.yml
+      - package.json
+      - index.js
+      - lib/**
+      - test/**.js
 permissions:
   contents: read
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: Lint JS-Files
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
@@ -147,7 +147,7 @@ jobs:
   dependency-review:
     name: Dependency Review
     if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
     steps:
